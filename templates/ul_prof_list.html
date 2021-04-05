@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="h2">Список Профессий</h2>
+<ul class="list-group">
+    {% for i in prof %}
+        <li class="list-group-item">{{i}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
