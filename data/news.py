@@ -17,4 +17,4 @@ class News(SqlAlchemyBase):
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer,
                                 sqlalchemy.ForeignKey("users.id"))
-    user = orm.relation('User')  # id from users table (default from primary_key)
+    user = orm.relation('User')
