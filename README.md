@@ -1,2 +1,2 @@
-# Flask_pattern
-Flask web app with SQLAlchemy  pattern
+# Flask template
+Flask web app with SQLAlchemy template
