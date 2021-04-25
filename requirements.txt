@@ -2,3 +2,5 @@ flask
 flask-wtf
 sqlalchemy
 flask-login
+SQLAlchemy-serializer
+requests

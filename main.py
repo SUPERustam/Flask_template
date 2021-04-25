@@ -1,11 +1,12 @@
 import datetime
-from flask import Flask, url_for, render_template, redirect, request, make_response, session, abort
+from flask import Flask, url_for, render_template, redirect, request,\
+    make_response, session, abort, jsonify
 from flask_login import LoginManager, current_user, login_user, login_manager, login_required
 
 from forms.login import LoginForm
 from forms.news import NewsForm
 from forms.user import RegisterForm
-from data import db_session
+from data import db_session, news_api
 from data.users import User
 from data.news import News
 
@@ -16,6 +17,11 @@ app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(
 )
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 @app.route("/")
@@ -165,6 +171,7 @@ def news_delete(id):
 
 def main():
     db_session.global_init("db/blogs.db")
+    app.register_blueprint(news_api.blueprint)
     app.run()
 
 
