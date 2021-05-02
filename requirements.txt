@@ -4,3 +4,5 @@ sqlalchemy
 flask-login
 SQLAlchemy-serializer
 requests
+flask-restful
+alembic
